@@ -122,6 +122,13 @@
       (.setHost bq-bldr host))
     (.. bq-bldr build getService)))
 
+        ;; set UNIVERSE_DOMAIN
+    (when universe-domain
+      (.setUniverseDomain bq-bldr universe-domain))                   
+    (when-let [host (not-empty (:host details))]
+      (.setHost bq-bldr host))
+    (.. bq-bldr build getService)))
+
 ;;; +----------------------------------------------------------------------------------------------------------------+
 ;;; |                                         Transducing Query Results                                              |
 ;;; +----------------------------------------------------------------------------------------------------------------+
